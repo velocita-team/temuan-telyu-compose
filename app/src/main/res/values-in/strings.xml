@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Text field label  -->
+    <string name="full_name">Nama lengkap</string>
+    <string name="email">Surel</string>
+    <string name="password">Kata sandi</string>
+    <string name="title">Judul</string>
+    <string name="description">Deskripsi</string>
+    <string name="tags">Penanda</string>
+    <!--  Text field hint  -->
+    <string name="full_name_hint">Masukkan nama lengkap</string>
+    <string name="email_hint">Masukkan surel</string>
+    <string name="password_hint">Masukkan kata sandi</string>
+    <string name="leave_comment">Berikan komentar</string>
+    <string name="title_hint">Masukkan judul</string>
+    <string name="description_hint">Masukkan deskripsi barang</string>
+    <string name="tags_hint">Masukkan penandan yang dipisah dengan \",\"</string>
+    <!--  Button label  -->
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="logout">Keluar</string>
+    <string name="home">Beranda</string>
+    <string name="profile">Profil</string>
+    <string name="returned">Dikembalikan</string>
+    <string name="lost">Hilang</string>
+    <string name="found">Ditemukan</string>
+    <string name="post">Unggah</string>
+    <string name="my_posts">Unggahan saya</string>
+    <string name="upload_photo">Unggah foto</string>
+    <!--  Content description  -->
+    <string name="search">Cari</string>
+    <string name="cancel_search">Batalkan pencarian</string>
+    <string name="create_post">Buat unggahan baru</string>
+    <string name="clear_text">Hapus teks</string>
+    <string name="comment">Komentar</string>
+    <string name="share">Bagikan</string>
+    <string name="password_visible">kata sandi terlihat %1$s</string>
+    <string name="go_back">Kembali ke halaman sebelumnya</string>
+    <string name="discard_post">Batalkan postingan</string>
+    <!--  Others  -->
+    <string name="uploading">Mengunggah…</string>
+    <string name="have_logout">Anda berhasil keluar.</string>
+    <string name="post_uploaded">Unggahan berhasil diunggah.</string>
+    <string name="fail_upload">Gagal mengunggah konten.</string>
+    <string name="fetch_error">Gagal memuat konten.</string>
+</resources>

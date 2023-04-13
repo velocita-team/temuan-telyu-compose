@@ -1,3 +1,53 @@
 <resources>
-    <string name="app_name">Temuan Telyu</string>
+    <string name="app_name" translatable="false">Temuan Telyu</string>
+    <!--  Text field label  -->
+    <string name="full_name">Full name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="tags">Tags</string>
+    <!--  Text field hint  -->
+    <string name="full_name_hint">Enter full name</string>
+    <string name="email_hint">Enter email</string>
+    <string name="password_hint">Enter password</string>
+    <string name="leave_comment">Leave a comment</string>
+    <string name="title_hint">Enter post title</string>
+    <string name="description_hint">Enter a description</string>
+    <string name="tags_hint">Enter tags separated by \",\"</string>
+    <!--  Button label  -->
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="returned">Returned</string>
+    <string name="lost">Lost</string>
+    <string name="found">Found</string>
+    <string name="post">Post</string>
+    <string name="my_posts">My posts</string>
+    <string name="upload_photo">Upload photo</string>
+    <!--  Content description  -->
+    <string name="search">Search</string>
+    <string name="cancel_search">Cancel search</string>
+    <string name="create_post">Create new post</string>
+    <string name="clear_text">Clear text</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="password_visible">Password visibility %1$s</string>
+    <string name="go_back">Go back to previous screen</string>
+    <string name="discard_post">Discard post</string>
+    <!--  Others  -->
+    <string name="empty" translatable="false" />
+    <string name="greeting" translatable="false">Hi, %1$s</string>
+    <string name="uploading">Uploading…</string>
+    <string name="have_logout">You have successfully logged out.</string>
+    <string name="post_uploaded">Post uploaded successfully.</string>
+    <string name="fail_upload">Failed to upload content.</string>
+    <string name="fetch_error">Failed to load content.</string>
+    <string name="share_user" translatable="false">
+        [%1$s] %2$s
+        \n%3$s | %4$s
+        \n%5$s
+    </string>
 </resources>
