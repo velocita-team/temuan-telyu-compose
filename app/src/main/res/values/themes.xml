@@ -5,4 +5,10 @@
         <item name="android:statusBarColor">@color/red_600</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/red_600</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/temuan_telyu_logo_xml</item>
+        <item name="postSplashScreenTheme">@style/Theme.TemuanTelyu</item>
+    </style>
 </resources>
