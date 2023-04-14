@@ -34,7 +34,7 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         loadData()
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModelScope.launch {
             currentUser?.uid?.let {
                 if (!currentUser.isAnonymous)

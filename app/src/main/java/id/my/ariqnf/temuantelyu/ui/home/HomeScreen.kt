@@ -9,6 +9,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -43,7 +44,7 @@ fun HomeScreen(
     val userName by viewModel.user.collectAsState()
     val context = LocalContext.current
     val snackbarHostState = LocalSnackbarHostState.current
-
+    val (postErr, userNameErr) = listOf(postsUiState.error?.asString(), userName.error?.asString())
     val statusBarColor = if (isSystemInDarkTheme()) Gray950 else WhiteSmoke
     // Change android status bar color
     DisposableEffect(systemUiController) {
@@ -57,6 +58,16 @@ fun HomeScreen(
             )
         }
     }
+
+    LaunchedEffect(key1 = postsUiState.error, key2 = userName.error) {
+        if (!postErr.isNullOrBlank()) {
+            snackbarHostState.showSnackbar(postErr)
+        }
+        if (!userNameErr.isNullOrBlank()) {
+            snackbarHostState.showSnackbar(userNameErr)
+        }
+    }
+
     Scaffold(
         topBar = {
             HomeTopBar(
@@ -74,6 +85,7 @@ fun HomeScreen(
         bottomBar = {
             Navbar(navController)
         },
+
         modifier = modifier
     ) {
         LazyColumn(contentPadding = it) {

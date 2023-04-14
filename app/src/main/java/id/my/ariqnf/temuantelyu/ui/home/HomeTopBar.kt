@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import id.my.ariqnf.temuantelyu.R
 import id.my.ariqnf.temuantelyu.ui.theme.Gray50
 import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
+import id.my.ariqnf.temuantelyu.util.rememberImeState
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,9 +58,17 @@ fun HomeTopBar(
     onClear: () -> Unit = {}
 ) {
     val focusRequester = remember { FocusRequester() }
+    val imeState = rememberImeState()
     var isSearch by remember {
         mutableStateOf(false)
     }
+
+    LaunchedEffect(key1 = imeState.value) {
+        if (!imeState.value) {
+            isSearch = false
+        }
+    }
+
     TopAppBar(
         modifier = modifier,
         colors = TopAppBarDefaults.smallTopAppBarColors(
