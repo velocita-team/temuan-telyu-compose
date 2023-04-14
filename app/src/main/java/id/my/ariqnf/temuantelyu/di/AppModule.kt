@@ -8,7 +8,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import id.my.ariqnf.temuantelyu.domain.HomeRepository
+import id.my.ariqnf.temuantelyu.domain.ProfileRepository
 import id.my.ariqnf.temuantelyu.domain.impl.HomeRepositoryImpl
+import id.my.ariqnf.temuantelyu.domain.impl.ProfileRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -31,4 +33,9 @@ object AppModule {
     fun providesHomePostRepository(firebaseFirestore: FirebaseFirestore): HomeRepository {
         return HomeRepositoryImpl(firebaseFirestore)
     }
+
+    @Provides
+    @Singleton
+    fun providesProfileRepository(firestore: FirebaseFirestore): ProfileRepository =
+        ProfileRepositoryImpl(firestore)
 }
