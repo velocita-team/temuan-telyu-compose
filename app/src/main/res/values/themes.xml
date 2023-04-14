@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.TemuanTelyu" parent="android:Theme.Material.NoActionBar">
-        <item name="android:statusBarColor">@color/red_600</item>
+        <item name="android:statusBarColor">@color/white_smoke</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">

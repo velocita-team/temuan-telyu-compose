@@ -38,6 +38,7 @@
     <string name="go_back">Go back to previous screen</string>
     <string name="discard_post">Discard post</string>
     <!--  Others  -->
+    <string name="telyutizen" translatable="false">Telyutizen</string>
     <string name="empty" translatable="false" />
     <string name="greeting" translatable="false">Hi, %1$s</string>
     <string name="uploading">Uploading…</string>

@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "43289535892",
+    "project_id": "test-temuan-telyu",
+    "storage_bucket": "test-temuan-telyu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43289535892:android:ecbaf890027d27ea8a1b81",
+        "android_client_info": {
+          "package_name": "com.velocitateam.temuantelyu_compose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43289535892-74vg00nkb2d8fditlhghudtk9hi1800t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnJSADAwq25xj7NQAIx6Qp2-i6NnJMSNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43289535892-74vg00nkb2d8fditlhghudtk9hi1800t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43289535892:android:acf0859132caf13b8a1b81",
+        "android_client_info": {
+          "package_name": "id.my.ariqnf.temuantelyu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43289535892-3f5u94j6t62p1k7q9q75t6d5hg8d8afh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.my.ariqnf.temuantelyu",
+            "certificate_hash": "b6e07f9787030aff762b24151fa47af72edd6fe1"
+          }
+        },
+        {
+          "client_id": "43289535892-74vg00nkb2d8fditlhghudtk9hi1800t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnJSADAwq25xj7NQAIx6Qp2-i6NnJMSNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43289535892-74vg00nkb2d8fditlhghudtk9hi1800t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
