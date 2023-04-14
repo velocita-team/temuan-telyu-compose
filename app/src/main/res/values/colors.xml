@@ -9,5 +9,5 @@
     <color name="gray_50">#FFEAEAEA</color>
     <color name="gray_800">#FF353333</color>
     <color name="gray_900">#FF2A2828</color>
-    <color name="gray_950">#800F0F0F</color>
+    <color name="gray_950">#FF0F0F0F</color>
 </resources>
