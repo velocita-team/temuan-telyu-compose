@@ -1,11 +1,7 @@
 package id.my.ariqnf.temuantelyu.ui.profile
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,9 +22,6 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
     val auth = Firebase.auth
     private val _userState = MutableStateFlow(ProfileUiState(User("Telyutizen")))
     val userState = _userState.asStateFlow()
-    var logoutMsg by mutableStateOf<UiText?>(null)
-        private set
-
 
     init {
         getData()
@@ -61,11 +54,6 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
     }
 
     fun logOut() {
-        logoutMsg = try {
-            auth.signOut()
-            UiText.StringResource(R.string.have_logout)
-        } catch (e: FirebaseAuthException) {
-            UiText.DynamicString(e.toString())
-        }
+        auth.signOut()
     }
 }

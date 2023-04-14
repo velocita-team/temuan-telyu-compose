@@ -7,8 +7,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import id.my.ariqnf.temuantelyu.domain.AuthRepository
 import id.my.ariqnf.temuantelyu.domain.HomeRepository
 import id.my.ariqnf.temuantelyu.domain.ProfileRepository
+import id.my.ariqnf.temuantelyu.domain.impl.AuthRepositoryImpl
 import id.my.ariqnf.temuantelyu.domain.impl.HomeRepositoryImpl
 import id.my.ariqnf.temuantelyu.domain.impl.ProfileRepositoryImpl
 import javax.inject.Singleton
@@ -27,6 +29,15 @@ object AppModule {
     @Provides
     @Singleton
     fun providesStorage() = FirebaseStorage.getInstance()
+
+    @Provides
+    @Singleton
+    fun providesAuthRepository(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    ): AuthRepository {
+        return AuthRepositoryImpl(firebaseAuth, firestore)
+    }
 
     @Provides
     @Singleton

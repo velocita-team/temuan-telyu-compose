@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import id.my.ariqnf.temuantelyu.ui.auth.LoginScreen
 import id.my.ariqnf.temuantelyu.ui.home.HomeScreen
 import id.my.ariqnf.temuantelyu.ui.profile.ProfileScreen
 import id.my.ariqnf.temuantelyu.util.Screen
@@ -17,6 +18,18 @@ fun TemuanTelyuScreens(navController: NavHostController = rememberNavController(
         }
         composable(Screen.Profile.route) {
             ProfileScreen(navController = navController)
+        }
+        composable(Screen.Login.route) {
+            LoginScreen(
+                navigateToRegister = {
+                    navController.navigate(Screen.Register.route)
+                },
+                navigateToHome = {
+                    navController.navigate(Screen.Home.route) {
+                        popUpTo(navController.graph.id) { inclusive = true }
+                    }
+                }
+            )
         }
     }
 }

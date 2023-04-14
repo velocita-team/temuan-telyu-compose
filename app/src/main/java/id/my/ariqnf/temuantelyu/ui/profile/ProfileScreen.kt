@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -32,7 +33,7 @@ fun ProfileScreen(
     val userState by viewModel.userState.collectAsState()
     val snackbarHostState = LocalSnackbarHostState.current
     val coroutineScope = LocalCoroutineScope.current
-    val logoutMsg = viewModel.logoutMsg?.asString()
+    val logoutMsg = stringResource(R.string.have_logout)
 
     Scaffold(
         bottomBar = { Navbar(navController) },
@@ -64,7 +65,7 @@ fun ProfileScreen(
                     modifier = Modifier.clickable {
                         viewModel.logOut()
                         coroutineScope.launch {
-                            snackbarHostState.showSnackbar(logoutMsg!!)
+                            snackbarHostState.showSnackbar(logoutMsg)
                         }
                         navController.navigate(Screen.Home.route) {
                             popUpTo(navController.graph.id) { inclusive = true }
