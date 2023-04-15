@@ -42,8 +42,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.my.ariqnf.temuantelyu.R
-import id.my.ariqnf.temuantelyu.ui.theme.Gray50
 import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
+import id.my.ariqnf.temuantelyu.ui.theme.Gray50
 import id.my.ariqnf.temuantelyu.util.rememberImeState
 import kotlinx.coroutines.delay
 
