@@ -133,7 +133,8 @@ fun LoginScreen(
                     viewModel.loginUser()
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !viewModel.isLoading
         ) {
             if (viewModel.isLoading) {
                 CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)

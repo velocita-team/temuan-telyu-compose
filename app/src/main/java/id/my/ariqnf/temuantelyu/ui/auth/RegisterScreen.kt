@@ -189,7 +189,8 @@ fun RegisterScreen(
                 }
             },
             modifier = Modifier.fillMaxWidth(),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary),
+            enabled = !viewModel.isLoading
         ) {
             if (viewModel.isLoading) {
                 CircularProgressIndicator()
