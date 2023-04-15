@@ -151,15 +151,14 @@ fun LoginScreen(
     }
 
     LaunchedEffect(key1 = loginState.value) {
-        scope.launch {
-            when (loginState.value) {
-                is Resource.Error -> {
-                    val msg = loginState.value?.message
-                    Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
-                }
-                is Resource.Success -> navigateToHome()
-                null -> return@launch
+        when (loginState.value) {
+            is Resource.Error -> {
+                val msg = loginState.value?.message
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
             }
+
+            is Resource.Success -> navigateToHome()
+            null -> return@LaunchedEffect
         }
     }
 }

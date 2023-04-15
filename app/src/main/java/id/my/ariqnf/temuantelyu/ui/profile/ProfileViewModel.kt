@@ -7,6 +7,7 @@ import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.my.ariqnf.temuantelyu.R
 import id.my.ariqnf.temuantelyu.data.User
+import id.my.ariqnf.temuantelyu.domain.AuthRepository
 import id.my.ariqnf.temuantelyu.domain.ProfileRepository
 import id.my.ariqnf.temuantelyu.util.Resource
 import id.my.ariqnf.temuantelyu.util.UiText
@@ -16,7 +17,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val repository: ProfileRepository) :
+class ProfileViewModel @Inject constructor(
+    private val repository: ProfileRepository,
+    private val authRepository: AuthRepository
+) :
     ViewModel() {
 
     val auth = Firebase.auth
@@ -55,5 +59,8 @@ class ProfileViewModel @Inject constructor(private val repository: ProfileReposi
 
     fun logOut() {
         auth.signOut()
+        viewModelScope.launch {
+            authRepository.createAnonymous()
+        }
     }
 }

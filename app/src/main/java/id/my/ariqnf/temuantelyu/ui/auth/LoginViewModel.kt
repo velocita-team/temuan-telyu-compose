@@ -6,6 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.my.ariqnf.temuantelyu.domain.AuthRepository
 import id.my.ariqnf.temuantelyu.util.Resource
@@ -16,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(private val repository: AuthRepository) : ViewModel() {
-
+    private val auth = Firebase.auth
     var uiState by mutableStateOf(LoginUiState())
         private set
     var isLoading by mutableStateOf(false)
@@ -39,6 +41,9 @@ class LoginViewModel @Inject constructor(private val repository: AuthRepository)
 
     fun loginUser() = viewModelScope.launch {
         isLoading = true
+        if (auth.currentUser?.isAnonymous == true) {
+            auth.currentUser?.delete()
+        }
         repository.loginUser(uiState.email, uiState.password).let { result ->
                 _loginState.send(result)
             }
