@@ -3,6 +3,7 @@ package id.my.ariqnf.temuantelyu.ui.profile
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -33,7 +34,7 @@ fun ProfileMenu(
     @StringRes labelRes: Int,
     modifier: Modifier = Modifier,
     borderWidth: Dp = 1.dp,
-    color: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    color: Color = MaterialTheme.colorScheme.onSurface,
     @DrawableRes trailingIconRes: Int? = null
 ) {
     CompositionLocalProvider(
@@ -41,11 +42,12 @@ fun ProfileMenu(
     ) {
         Row(
             modifier = modifier
+                .background(MaterialTheme.colorScheme.surface)
                 .fillMaxWidth()
                 .border(
                     BorderStroke(
                         borderWidth,
-                        LocalContentColor.current
+                        MaterialTheme.colorScheme.surfaceVariant
                     ), RoundedCornerShape(4.dp)
                 )
                 .padding(20.dp),

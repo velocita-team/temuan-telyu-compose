@@ -2,6 +2,7 @@ package id.my.ariqnf.temuantelyu.ui.profile
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,8 +26,9 @@ import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
 fun ProfileBanner(name: String, email: String, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
+            .background(MaterialTheme.colorScheme.surface)
             .fillMaxWidth()
-            .border(BorderStroke(1.dp, MaterialTheme.colorScheme.onSurfaceVariant), MaterialTheme.shapes.small)
+            .border(BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant), MaterialTheme.shapes.small)
             .padding(20.dp),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically

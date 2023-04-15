@@ -34,7 +34,7 @@ private val menuItems = listOf(
 
 @Composable
 fun Navbar(navController: NavHostController, modifier: Modifier = Modifier) {
-    NavigationBar(modifier = modifier, containerColor = MaterialTheme.colorScheme.background, tonalElevation = 0.dp) {
+    NavigationBar(modifier = modifier, containerColor = MaterialTheme.colorScheme.surface, tonalElevation = 0.5.dp) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
 
@@ -84,8 +84,8 @@ fun Navbar(navController: NavHostController, modifier: Modifier = Modifier) {
                     enabled = true,
                     colors = NavigationBarItemDefaults.colors(
                         unselectedIconColor = Color.Gray,
-                        selectedIconColor = MaterialTheme.colorScheme.primary,
-                        indicatorColor = MaterialTheme.colorScheme.background,
+                        selectedIconColor = MaterialTheme.colorScheme.onPrimary,
+                        indicatorColor = MaterialTheme.colorScheme.primary,
                         selectedTextColor = MaterialTheme.colorScheme.primary
                     )
                 )
