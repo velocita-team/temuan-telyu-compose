@@ -52,7 +52,7 @@ fun PostTopAppBar(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CreatePostTopBar(navigateBack: () -> Unit, modifier: Modifier = Modifier, onPost: () -> Unit = {}) {
+fun CreatePostTopBar(navigateBack: () -> Unit, modifier: Modifier = Modifier, onPost: () -> Unit = {}, enablePost: Boolean = true) {
     TopAppBar(
         navigationIcon = {
             IconButton(onClick = navigateBack) {
@@ -63,7 +63,7 @@ fun CreatePostTopBar(navigateBack: () -> Unit, modifier: Modifier = Modifier, on
             }
         },
         actions = {
-            Button(onClick = onPost) {
+            Button(onClick = onPost, enabled = enablePost) {
                 Text(text = stringResource(R.string.post).uppercase())
             }
         },

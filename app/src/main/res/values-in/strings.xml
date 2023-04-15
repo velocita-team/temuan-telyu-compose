@@ -22,6 +22,9 @@
     <string name="password_invalid">Kata sandi seharusnya memiliki setidaknya enam karakter dan memiliki satu angka, satu huruf kecil dan satu huruf kapital.</string>
     <string name="password_match_invalid">Kata sandi tidak sama.</string>
     <string name="full_name_invalid">Tolong masukkan nama yang valid dengan karakter alfabet saja dan maksimum 70 karakter.</string>
+    <string name="title_invalid">Tolong masukkan judul dengan maksimal 255 karakter.</string>
+    <string name="description_invalid">Tolong masukkan deskripsi dengan maksimal 1000 karakter.</string>
+    <string name="tags_invalid">Tolong masukkan setidaknya satu penanda</string>
     <!--  Button label  -->
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>

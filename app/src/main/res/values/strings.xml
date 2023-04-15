@@ -22,6 +22,9 @@
     <string name="password_invalid">Password should have at least six characters and include one digit, one lower case letter and one upper case letter.</string>
     <string name="password_match_invalid">Password do not match.</string>
     <string name="full_name_invalid">Please enter a valid name with alphabet characters only and maximum 70 characters.</string>
+    <string name="title_invalid">Please insert title with maximum 255 characters.</string>
+    <string name="description_invalid">Please insert description with maximum 1000 characters.</string>
+    <string name="tags_invalid">Please insert at least one tag</string>
     <!--  Button label  -->
     <string name="register">Register</string>
     <string name="login">Login</string>
