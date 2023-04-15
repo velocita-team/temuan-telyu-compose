@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import id.my.ariqnf.temuantelyu.ui.auth.LoginScreen
 import id.my.ariqnf.temuantelyu.ui.auth.RegisterScreen
 import id.my.ariqnf.temuantelyu.ui.home.HomeScreen
+import id.my.ariqnf.temuantelyu.ui.post.MyPostScreen
 import id.my.ariqnf.temuantelyu.ui.profile.ProfileScreen
 import id.my.ariqnf.temuantelyu.util.Screen
 
@@ -19,6 +20,9 @@ fun TemuanTelyuScreens(navController: NavHostController = rememberNavController(
         }
         composable(Screen.Profile.route) {
             ProfileScreen(navController = navController)
+        }
+        composable(Screen.MyPost.route) {
+            MyPostScreen(navController = navController)
         }
         composable(Screen.Login.route) {
             LoginScreen(

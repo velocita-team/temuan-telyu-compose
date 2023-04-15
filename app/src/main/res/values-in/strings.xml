@@ -34,6 +34,8 @@
     <string name="post">Unggah</string>
     <string name="my_posts">Unggahan saya</string>
     <string name="upload_photo">Unggah foto</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batalkan</string>
     <!--  Content description  -->
     <string name="search">Cari</string>
     <string name="cancel_search">Batalkan pencarian</string>
@@ -45,9 +47,12 @@
     <string name="go_back">Kembali ke halaman sebelumnya</string>
     <string name="discard_post">Batalkan postingan</string>
     <!--  Others  -->
+    <string name="ask_confirmation">Apa kamu yakin?</string>
+    <string name="delete_info">Unggahan akan dihapus dan tidak bisa dikembalikan lagi.</string>
     <string name="uploading">Mengunggah…</string>
     <string name="have_logout">Anda berhasil keluar.</string>
     <string name="post_uploaded">Unggahan berhasil diunggah.</string>
     <string name="fail_upload">Gagal mengunggah konten.</string>
+    <string name="fail_delete">Gagal menghapus konten.</string>
     <string name="fetch_error">Gagal memuat konten.</string>
 </resources>
