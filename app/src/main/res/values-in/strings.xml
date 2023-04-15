@@ -25,6 +25,7 @@
     <string name="title_invalid">Tolong masukkan judul dengan maksimal 255 karakter.</string>
     <string name="description_invalid">Tolong masukkan deskripsi dengan maksimal 1000 karakter.</string>
     <string name="tags_invalid">Tolong masukkan setidaknya satu penanda</string>
+    <string name="reply_invalid">Tolong masukkan balasan dengan maksimal 500 karakter.</string>
     <!--  Button label  -->
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>

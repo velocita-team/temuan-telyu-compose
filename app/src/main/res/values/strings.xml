@@ -25,6 +25,7 @@
     <string name="title_invalid">Please insert title with maximum 255 characters.</string>
     <string name="description_invalid">Please insert description with maximum 1000 characters.</string>
     <string name="tags_invalid">Please insert at least one tag</string>
+    <string name="reply_invalid">Please enter reply with maximum 500 characters.</string>
     <!--  Button label  -->
     <string name="register">Register</string>
     <string name="login">Login</string>

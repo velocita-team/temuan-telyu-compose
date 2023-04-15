@@ -25,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -46,7 +47,8 @@ fun PostCard(
     post: Post,
     modifier: Modifier = Modifier,
     onComment: () -> Unit = {},
-    onShare: () -> Unit = {}
+    onShare: () -> Unit = {},
+    cardShape: Shape = CardDefaults.shape
 ) {
     val cateColor = if (post.cate == "lost") Red600 else Green600
     val formattedDate = post.date?.relativeTime() ?: ""
@@ -57,7 +59,8 @@ fun PostCard(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface,
             contentColor = MaterialTheme.colorScheme.onSurface
-        )
+        ),
+        shape = cardShape
     ) {
         Column {
             Row(
