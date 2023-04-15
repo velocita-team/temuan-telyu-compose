@@ -4,17 +4,24 @@
     <string name="full_name">Full name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="repeat_password">Repeat Password</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="tags">Tags</string>
     <!--  Text field hint  -->
-    <string name="full_name_hint">Enter full name</string>
-    <string name="email_hint">Enter email</string>
-    <string name="password_hint">Enter password</string>
-    <string name="leave_comment">Leave a comment</string>
-    <string name="title_hint">Enter post title</string>
-    <string name="description_hint">Enter a description</string>
-    <string name="tags_hint">Enter tags separated by \",\"</string>
+    <string name="full_name_hint">Enter full name.</string>
+    <string name="email_hint">Enter email.</string>
+    <string name="password_hint">Enter password.</string>
+    <string name="repeat_password_hint">Re-enter password.</string>
+    <string name="leave_comment">Leave a comment.</string>
+    <string name="title_hint">Enter post title.</string>
+    <string name="description_hint">Enter a description.</string>
+    <string name="tags_hint">Enter tags separated by \",\".</string>
+    <!--  Input error message  -->
+    <string name="email_invalid">Please insert a valid email.</string>
+    <string name="password_invalid">Password should have at least six characters and include one digit, one lower case letter and one upper case letter.</string>
+    <string name="password_match_invalid">Password do not match.</string>
+    <string name="full_name_invalid">Please enter a valid name with alphabet characters only and maximum 70 characters.</string>
     <!--  Button label  -->
     <string name="register">Register</string>
     <string name="login">Login</string>

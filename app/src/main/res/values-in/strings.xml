@@ -4,17 +4,24 @@
     <string name="full_name">Nama lengkap</string>
     <string name="email">Surel</string>
     <string name="password">Kata sandi</string>
+    <string name="repeat_password">Ulang kata sandi</string>
     <string name="title">Judul</string>
     <string name="description">Deskripsi</string>
     <string name="tags">Penanda</string>
     <!--  Text field hint  -->
-    <string name="full_name_hint">Masukkan nama lengkap</string>
-    <string name="email_hint">Masukkan surel</string>
-    <string name="password_hint">Masukkan kata sandi</string>
-    <string name="leave_comment">Berikan komentar</string>
-    <string name="title_hint">Masukkan judul</string>
-    <string name="description_hint">Masukkan deskripsi barang</string>
-    <string name="tags_hint">Masukkan penandan yang dipisah dengan \",\"</string>
+    <string name="full_name_hint">Masukkan nama lengkap.</string>
+    <string name="email_hint">Masukkan surel.</string>
+    <string name="password_hint">Masukkan kata sandi.</string>
+    <string name="repeat_password_hint">Masukkan kembali kata sandi.</string>
+    <string name="leave_comment">Berikan komentar.</string>
+    <string name="title_hint">Masukkan judul.</string>
+    <string name="description_hint">Masukkan deskripsi barang.</string>
+    <string name="tags_hint">Masukkan penandan yang dipisah dengan \",\".</string>
+    <!--  Input error message  -->
+    <string name="email_invalid">Tolong masukkan surel yang valid.</string>
+    <string name="password_invalid">Kata sandi seharusnya memiliki setidaknya enam karakter dan memiliki satu angka, satu huruf kecil dan satu huruf kapital.</string>
+    <string name="password_match_invalid">Kata sandi tidak sama.</string>
+    <string name="full_name_invalid">Tolong masukkan nama yang valid dengan karakter alfabet saja dan maksimum 70 karakter.</string>
     <!--  Button label  -->
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>

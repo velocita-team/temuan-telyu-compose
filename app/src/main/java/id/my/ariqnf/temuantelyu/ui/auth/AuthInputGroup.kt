@@ -27,10 +27,11 @@ fun AuthInputGroup(
     hint: String,
     modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit = {},
+    isError: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     trailingIcon: @Composable (() -> Unit)? = null,
-    visualTransformation: VisualTransformation = VisualTransformation.None
+    visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
     Column(
         modifier = modifier
@@ -48,7 +49,8 @@ fun AuthInputGroup(
             trailingIcon = trailingIcon,
             keyboardOptions = keyboardOptions,
             keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation
+            visualTransformation = visualTransformation,
+            isError = isError
         )
         Text(
             text = hint,

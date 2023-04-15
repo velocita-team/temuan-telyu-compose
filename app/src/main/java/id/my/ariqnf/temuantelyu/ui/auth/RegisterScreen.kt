@@ -4,13 +4,19 @@ import android.widget.Toast
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -41,20 +47,25 @@ import id.my.ariqnf.temuantelyu.util.rememberImeState
 import kotlinx.coroutines.launch
 
 @Composable
-fun LoginScreen(
-    navigateToRegister: () -> Unit,
+fun RegisterScreen(
     navigateToHome: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: LoginViewModel = hiltViewModel()
+    viewModel: RegisterViewModel = hiltViewModel()
 ) {
     val focusManager = LocalFocusManager.current
     val imeState = rememberImeState()
     val scrollState = rememberScrollState()
     val uiState = viewModel.uiState
-    val loginState = viewModel.loginState.collectAsState(initial = null)
+    val registerState = viewModel.registerState.collectAsState(initial = null)
+    val errorState = viewModel.errorState.collectAsState(initial = RegisterErrorState())
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
     val icon = if (uiState.passwordVisible) R.drawable.visibility_off else R.drawable.visibility
+
+    val nameErr = errorState.value.fullName.asString()
+    val emailErr = errorState.value.email.asString()
+    val passErr = errorState.value.password.asString()
+    val rePassErr = errorState.value.rePassword.asString()
 
 //  Scroll content when keyboard is shown
     LaunchedEffect(key1 = imeState.value) {
@@ -83,10 +94,24 @@ fun LoginScreen(
         )
         Spacer(modifier = Modifier.height(80.dp))
         AuthInputGroup(
-            label = stringResource(R.string.email),
+            label = stringResource(R.string.full_name),
+            value = uiState.fullName,
+            onValueChange = viewModel::setFullName,
+            hint = nameErr.ifBlank { stringResource(R.string.full_name_hint) },
+            isError = nameErr.isNotBlank(),
+            keyboardOptions = KeyboardOptions(
+                imeAction = ImeAction.Next
+            ),
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+            )
+        )
+        AuthInputGroup(
+            label = emailErr.ifBlank { stringResource(R.string.email) },
             value = uiState.email,
             onValueChange = viewModel::setEmail,
-            hint = stringResource(R.string.email_hint),
+            hint = emailErr.ifBlank { stringResource(R.string.email_hint) },
+            isError = emailErr.isNotBlank(),
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
@@ -99,7 +124,36 @@ fun LoginScreen(
             label = stringResource(R.string.password),
             value = uiState.password,
             onValueChange = viewModel::setPassword,
-            hint = stringResource(R.string.password_hint),
+            hint = passErr.ifBlank { stringResource(R.string.password_hint) },
+            isError = passErr.isNotBlank(),
+            trailingIcon = {
+                IconButton(onClick = {
+                    viewModel.togglePassVisibility()
+                }) {
+                    Icon(
+                        painter = painterResource(icon),
+                        contentDescription = stringResource(
+                            R.string.password_visible,
+                            uiState.passwordVisible
+                        )
+                    )
+                }
+            },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password,
+                imeAction = ImeAction.Next
+            ),
+            keyboardActions = KeyboardActions(
+                onNext = { focusManager.moveFocus(FocusDirection.Down) }
+            ),
+            visualTransformation = if (uiState.passwordVisible) VisualTransformation.None else PasswordVisualTransformation()
+        )
+        AuthInputGroup(
+            label = stringResource(R.string.repeat_password),
+            value = uiState.rePassword,
+            onValueChange = viewModel::setRePassword,
+            hint = rePassErr.ifBlank { stringResource(R.string.repeat_password_hint) },
+            isError = rePassErr.isNotBlank(),
             trailingIcon = {
                 IconButton(onClick = {
                     viewModel.togglePassVisibility()
@@ -121,39 +175,34 @@ fun LoginScreen(
                 onSend = {
                     focusManager.clearFocus()
                     scope.launch {
-                        viewModel.loginUser()
+                        viewModel.registerUser()
                     }
                 }
             ),
             visualTransformation = if (uiState.passwordVisible) VisualTransformation.None else PasswordVisualTransformation()
         )
-        Button(
+
+        OutlinedButton(
             onClick = {
                 scope.launch {
-                    viewModel.loginUser()
+                    viewModel.registerUser()
                 }
             },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            if (viewModel.isLoading) {
-                CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary)
-            } else {
-                Text(text = stringResource(R.string.login).uppercase())
-            }
-        }
-        OutlinedButton(
-            onClick = navigateToRegister,
             modifier = Modifier.fillMaxWidth(),
             border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
         ) {
-            Text(text = stringResource(R.string.register).uppercase())
+            if (viewModel.isLoading) {
+                CircularProgressIndicator()
+            } else {
+                Text(text = stringResource(R.string.register).uppercase())
+            }
         }
     }
 
-    LaunchedEffect(key1 = loginState.value) {
-        when (loginState.value) {
+    LaunchedEffect(key1 = registerState.value) {
+        when (registerState.value) {
             is Resource.Error -> {
-                val msg = loginState.value?.message
+                val msg = registerState.value?.message
                 Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
             }
 
