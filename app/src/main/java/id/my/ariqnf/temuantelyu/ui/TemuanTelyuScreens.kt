@@ -14,6 +14,7 @@ import id.my.ariqnf.temuantelyu.ui.post.CreatePostScreen
 import id.my.ariqnf.temuantelyu.ui.post.MyPostScreen
 import id.my.ariqnf.temuantelyu.ui.post.PostRepliesScreen
 import id.my.ariqnf.temuantelyu.ui.profile.ProfileScreen
+import id.my.ariqnf.temuantelyu.ui.search.SearchScreen
 import id.my.ariqnf.temuantelyu.util.Screen
 
 @Composable
@@ -21,6 +22,12 @@ fun TemuanTelyuScreens(navController: NavHostController = rememberNavController(
     NavHost(navController = navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
             HomeScreen(navController = navController)
+        }
+        composable(
+            Screen.Search.route + Screen.Search.params,
+            arguments = listOf(navArgument("search") { type = NavType.StringType })
+        ) {
+            SearchScreen(navController = navController)
         }
         composable(Screen.Profile.route) {
             ProfileScreen(navController = navController)

@@ -18,7 +18,7 @@ sealed class Screen(
     object CreatePost : Screen("create-post", labelRes = R.string.create_post, icon = Icons.Default.Add)
     object Profile : Screen("profile", labelRes = R.string.profile, icon = Icons.Default.Person)
     object Post : Screen("post", "/users/{userId}/posts/{postId}")
-    object Search : Screen("search", "/search")
+    object Search : Screen("search", "/{search}")
     object MyPost : Screen("my-post")
     object Login : Screen("login")
     object Register : Screen("register")

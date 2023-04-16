@@ -3,22 +3,14 @@ package id.my.ariqnf.temuantelyu.ui.post
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -35,6 +27,7 @@ import id.my.ariqnf.temuantelyu.LocalCoroutineScope
 import id.my.ariqnf.temuantelyu.LocalSnackbarHostState
 import id.my.ariqnf.temuantelyu.R
 import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
+import id.my.ariqnf.temuantelyu.ui.widgets.LostFoundButton
 import id.my.ariqnf.temuantelyu.util.Resource
 import kotlinx.coroutines.launch
 
@@ -79,6 +72,8 @@ fun CreatePostScreen(
     val titleErr = errorState.value.title.asString()
     val descriptionErr = errorState.value.description.asString()
     val tagsErr = errorState.value.tags.asString()
+    val isFound = uiState.value.cate == "found"
+    val isLost = uiState.value.cate == "lost"
 
     Scaffold(
         modifier = modifier,
@@ -105,40 +100,15 @@ fun CreatePostScreen(
                 .verticalScroll(scrollState)
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         ) {
-            Row {
-                Button(
-                    onClick = {
-                        viewModel.setCate()
-                    },
-                    enabled = uiState.value.cate != "lost",
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                        contentColor = MaterialTheme.colorScheme.onSurface,
-                        disabledContainerColor = MaterialTheme.colorScheme.primary,
-                        disabledContentColor = MaterialTheme.colorScheme.onPrimary
-                    ),
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text(text = stringResource(R.string.lost))
-                }
-                Spacer(modifier = Modifier.width(20.dp))
-                Button(
-                    onClick = {
-                        viewModel.setCate()
-                    },
-                    enabled = uiState.value.cate != "found",
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                        contentColor = MaterialTheme.colorScheme.onSurface,
-                        disabledContainerColor = MaterialTheme.colorScheme.tertiary,
-                        disabledContentColor = MaterialTheme.colorScheme.onTertiary
-                    ),
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text(text = stringResource(R.string.found))
-                }
-            }
-            Spacer(modifier = Modifier.height(20.dp))
+            LostFoundButton(
+                onLostClick = viewModel::setCate,
+                onFoundClick = viewModel::setCate,
+                enableFound = isLost,
+                enableLost = isFound,
+                foundChecked = isFound,
+                lostChecked = isLost,
+                modifier = Modifier.padding(bottom = 20.dp)
+            )
             Column {
                 PostForm(
                     value = uiState.value.title,
