@@ -35,7 +35,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -137,14 +136,16 @@ fun HomeTopBar(
                             }
                         ),
                         singleLine = true,
-                        textStyle = MaterialTheme.typography.bodyMedium,
-                        cursorBrush = SolidColor(Color.Black.copy(alpha = 0.6f)),
+                        textStyle = MaterialTheme.typography.bodyMedium.copy(
+                            color = MaterialTheme.colorScheme.onSurface
+                        ),
+                        cursorBrush = SolidColor(MaterialTheme.colorScheme.secondary),
                         modifier = Modifier
                             .matchParentSize()
                             .clip(
                                 MaterialTheme.shapes.medium
                             )
-                            .background(MaterialTheme.colorScheme.surfaceVariant)
+                            .background(MaterialTheme.colorScheme.surface)
                             .focusRequester(focusRequester), // add focusRequester modifier to request changes
                         decorationBox = { innerTextField ->
                             Row(
@@ -161,7 +162,7 @@ fun HomeTopBar(
                                     Icon(
                                         imageVector = Icons.Default.Clear,
                                         contentDescription = stringResource(R.string.clear_text),
-                                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                                        tint = MaterialTheme.colorScheme.onSurface
                                     )
                                 }
                             }
