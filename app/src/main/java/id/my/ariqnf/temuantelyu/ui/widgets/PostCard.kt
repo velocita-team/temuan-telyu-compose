@@ -46,6 +46,72 @@ import id.my.ariqnf.temuantelyu.util.relativeTime
 fun PostCard(
     post: Post,
     modifier: Modifier = Modifier,
+    cardShape: Shape = CardDefaults.shape
+) {
+    val cateColor = if (post.cate == "lost") Red600 else Green600
+    val formattedDate = post.date?.relativeTime() ?: ""
+
+    Card(
+        modifier = modifier,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.surfaceVariant),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface
+        ),
+        shape = cardShape
+    ) {
+        Column {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(text = "${post.title}", style = MaterialTheme.typography.titleLarge)
+                    Text(
+                        text = "${post.sender} | $formattedDate",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
+                Box(
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clip(CircleShape)
+                        .background(cateColor)
+                )
+            }
+            if (!post.imageUrl.isNullOrBlank()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16 / 9f)
+                ) {
+                    AsyncImage(
+                        modifier = Modifier.fillMaxWidth(),
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(post.imageUrl)
+                            .crossfade(true)
+                            .build(),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop
+                    )
+                }
+            }
+            Text(
+                text = "${post.content}",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun PostCard(
+    post: Post,
+    modifier: Modifier = Modifier,
     onComment: () -> Unit = {},
     onShare: () -> Unit = {},
     cardShape: Shape = CardDefaults.shape

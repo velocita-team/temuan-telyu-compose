@@ -23,8 +23,14 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import id.my.ariqnf.temuantelyu.LocalCoroutineScope
+import id.my.ariqnf.temuantelyu.LocalSnackbarHostState
+import id.my.ariqnf.temuantelyu.R
 import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
 import id.my.ariqnf.temuantelyu.util.Screen
+import kotlinx.coroutines.launch
 
 private val menuItems = listOf(
     Screen.Home,
@@ -34,16 +40,28 @@ private val menuItems = listOf(
 
 @Composable
 fun Navbar(navController: NavHostController, modifier: Modifier = Modifier) {
-    NavigationBar(modifier = modifier, containerColor = MaterialTheme.colorScheme.surface, tonalElevation = 0.5.dp) {
+    NavigationBar(
+        modifier = modifier,
+        containerColor = MaterialTheme.colorScheme.surface,
+        tonalElevation = 0.5.dp
+    ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
-
+        val coroutineScope = LocalCoroutineScope.current
+        val snakebarHostState = LocalSnackbarHostState.current
+        val limitedMsg = stringResource(R.string.limited_access)
         menuItems.forEachIndexed { index, menuItem ->
             if (index == 1) {
                 NavigationBarItem(
                     selected = false,
                     onClick = {
-                        navController.navigate(menuItem.route)
+                        if (Firebase.auth.currentUser?.isAnonymous == true) {
+                            coroutineScope.launch {
+                                snakebarHostState.showSnackbar(limitedMsg)
+                            }
+                        } else {
+                            navController.navigate(menuItem.route)
+                        }
                     },
                     icon = {
                         Box(

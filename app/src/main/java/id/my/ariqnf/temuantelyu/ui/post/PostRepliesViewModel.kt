@@ -76,7 +76,12 @@ class PostRepliesViewModel @Inject constructor(
 
 
     fun sendReply() = viewModelScope.launch {
-        if (!currentUser!!.isAnonymous && userReply.isNotBlank() && userReply.length <= 500) {
+        if (currentUser!!.isAnonymous) {
+            _errorState.send(UiText.StringResource(R.string.limited_access))
+            return@launch
+        }
+
+        if (userReply.isNotBlank() && userReply.length <= 500) {
             repository.sendReply(userId, postId, currentUser.uid, userReply)
             userReply = ""
         } else {

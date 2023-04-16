@@ -59,4 +59,5 @@
     <string name="fail_upload">Gagal mengunggah konten.</string>
     <string name="fail_delete">Gagal menghapus konten.</string>
     <string name="fetch_error">Gagal memuat konten.</string>
+    <string name="limited_access">Untuk mengakses lebih banyak fitur, silahkan daftar atau masuk!</string>
 </resources>

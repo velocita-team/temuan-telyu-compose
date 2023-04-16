@@ -62,6 +62,7 @@
     <string name="fail_upload">Failed to upload content.</string>
     <string name="fail_delete">Failed to delete content.</string>
     <string name="fetch_error">Failed to load content.</string>
+    <string name="limited_access">To access more features, please register or login!</string>
     <string name="share_user" translatable="false">
         [%1$s] %2$s
         \n%3$s | %4$s
