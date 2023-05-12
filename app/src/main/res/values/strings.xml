@@ -46,6 +46,7 @@
     <string name="create_post">Create new post</string>
     <string name="clear_text">Clear text</string>
     <string name="comment">Comment</string>
+    <string name="direct_message">Direct Message</string>
     <string name="share">Share</string>
     <string name="password_visible">Password visibility %1$s</string>
     <string name="go_back">Go back to previous screen</string>

@@ -46,6 +46,7 @@
     <string name="create_post">Buat unggahan baru</string>
     <string name="clear_text">Hapus teks</string>
     <string name="comment">Komentar</string>
+    <string name="direct_message">Pesan langsung</string>
     <string name="share">Bagikan</string>
     <string name="password_visible">kata sandi terlihat %1$s</string>
     <string name="go_back">Kembali ke halaman sebelumnya</string>

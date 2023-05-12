@@ -2,10 +2,16 @@ package id.my.ariqnf.temuantelyu.ui.home
 
 import android.content.Intent
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -14,6 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -100,11 +107,18 @@ fun HomeScreen(
                 )
                 PostCard(
                     post,
-                    Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    onComment = {
+                    Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                ) {
+                    IconButton(onClick = {
                         navController.navigate(Screen.Post.route + "/${post.id}")
-                    },
-                    onShare = {
+                    }) {
+                        Icon(
+                            painter = painterResource(R.drawable.sms),
+                            contentDescription = stringResource(R.string.comment)
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(4.dp))
+                    IconButton(onClick = {
                         val sendIntent = Intent().apply {
                             action = Intent.ACTION_SEND
                             putExtra(Intent.EXTRA_TEXT, shareMsg)
@@ -112,8 +126,13 @@ fun HomeScreen(
                         }
                         val shareIntent = Intent.createChooser(sendIntent, null)
                         context.startActivity(shareIntent)
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Share,
+                            contentDescription = stringResource(R.string.share)
+                        )
                     }
-                )
+                }
             }
         }
     }
