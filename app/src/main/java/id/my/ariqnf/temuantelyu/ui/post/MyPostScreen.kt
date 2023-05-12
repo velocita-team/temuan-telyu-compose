@@ -43,7 +43,7 @@ fun MyPostScreen(
 
     Scaffold(
         topBar = {
-            BasicTopBar(titleRes = R.string.post, navigateBack = {
+            BasicTopBar(title = stringResource(R.string.post), navigateBack = {
                 navController.popBackStack()
             })
         },

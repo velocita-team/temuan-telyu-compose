@@ -1,4 +1,4 @@
-package id.my.ariqnf.temuantelyu.ui.post
+package id.my.ariqnf.temuantelyu.ui.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -44,7 +44,9 @@ fun ReplyField(
     Surface(
         modifier = modifier
             .fillMaxWidth(),
-        color = MaterialTheme.colorScheme.background
+        color = MaterialTheme.colorScheme.background,
+        shadowElevation = 24.dp,
+        tonalElevation = 15.dp
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 10.dp),
