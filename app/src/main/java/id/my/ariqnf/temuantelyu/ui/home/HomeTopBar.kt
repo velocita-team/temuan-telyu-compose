@@ -154,7 +154,17 @@ fun HomeTopBar(
                                 modifier = Modifier
                                     .padding(start = 6.dp)
                             ) {
-                                innerTextField()
+                                Box(modifier.fillMaxWidth()) {
+                                    if (value.isBlank()) {
+                                        Text(
+                                            text = stringResource(R.string.tags_hint),
+                                            style = MaterialTheme.typography.bodyMedium.copy(
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            )
+                                        )
+                                    }
+                                    innerTextField()
+                                }
                                 IconButton(onClick = {
                                     isSearch = false
                                     onClear()
