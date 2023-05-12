@@ -20,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import id.my.ariqnf.temuantelyu.LocalSnackbarHostState
 import id.my.ariqnf.temuantelyu.R
+import id.my.ariqnf.temuantelyu.ui.widgets.BasicTopBar
 import id.my.ariqnf.temuantelyu.ui.widgets.PostCard
 import id.my.ariqnf.temuantelyu.util.UiText
 
@@ -38,7 +39,7 @@ fun PostRepliesScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            PostTopAppBar(
+            BasicTopBar(
                 navigateBack = {
                     navController.popBackStack()
                 }

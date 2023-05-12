@@ -22,6 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import id.my.ariqnf.temuantelyu.LocalSnackbarHostState
 import id.my.ariqnf.temuantelyu.R
+import id.my.ariqnf.temuantelyu.ui.widgets.BasicTopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun MyPostScreen(
 
     Scaffold(
         topBar = {
-            PostTopAppBar(titleRes = R.string.post, navigateBack = {
+            BasicTopBar(titleRes = R.string.post, navigateBack = {
                 navController.popBackStack()
             })
         },
