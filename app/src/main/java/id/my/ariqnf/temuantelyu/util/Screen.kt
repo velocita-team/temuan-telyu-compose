@@ -23,4 +23,5 @@ sealed class Screen(
     object Login : Screen("login")
     object Register : Screen("register")
     object Chat : Screen("chat", "/{otherUserId}")
+    object Contact : Screen("contact")
 }

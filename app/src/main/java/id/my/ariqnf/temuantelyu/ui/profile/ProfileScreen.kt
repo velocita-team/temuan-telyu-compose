@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -48,6 +49,16 @@ fun ProfileScreen(
             Spacer(modifier = Modifier.height(24.dp))
             if (viewModel.auth.currentUser?.isAnonymous == false) {
                 ProfileMenu(
+                    iconRes = R.drawable.mail,
+                    labelRes = R.string.messages,
+                    trailingIconRes = R.drawable.arrow_forward_ios,
+                    borderWidth = 1.dp,
+                    modifier = Modifier.clickable {
+                        navController.navigate(Screen.Contact.route)
+                    }
+                )
+                Spacer(modifier = Modifier.height(14.dp))
+                ProfileMenu(
                     iconRes = R.drawable.article,
                     labelRes = R.string.my_posts,
                     trailingIconRes = R.drawable.arrow_forward_ios,
@@ -56,7 +67,7 @@ fun ProfileScreen(
                         navController.navigate(Screen.MyPost.route)
                     }
                 )
-                Spacer(modifier = Modifier.height(14.dp))
+                Divider(Modifier.padding(top = 14.dp, bottom = 14.dp))
                 ProfileMenu(
                     iconRes = R.drawable.logout,
                     labelRes = R.string.logout,

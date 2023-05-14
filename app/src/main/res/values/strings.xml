@@ -40,6 +40,7 @@
     <string name="upload_photo">Upload photo</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
+    <string name="messages">Messages</string>
     <!--  Content description  -->
     <string name="search">Search</string>
     <string name="cancel_search">Cancel search</string>

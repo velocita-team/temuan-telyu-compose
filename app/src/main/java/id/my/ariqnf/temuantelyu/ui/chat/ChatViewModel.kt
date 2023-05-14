@@ -30,7 +30,7 @@ class ChatViewModel @Inject constructor(
     private val currentUser = Firebase.auth.currentUser
     private val otherUserId: String = checkNotNull(savedStateHandle["otherUserId"])
     private val _chatUiState = MutableStateFlow(ChatUiState())
-    private val _errorState = Channel<UiText>()
+    private val _errorState = Channel<ChatUiState>()
     private var chatRoomId by mutableStateOf("")
     val chatUiState = _chatUiState.asStateFlow()
     val errorState = _errorState.receiveAsFlow()
@@ -45,7 +45,7 @@ class ChatViewModel @Inject constructor(
         currentUser?.uid?.let { userId ->
             repository.getChats(userId, otherUserId).let { result ->
                 when (result) {
-                    is Resource.Error -> _errorState.send(UiText.DynamicString(result.message!!))
+                    is Resource.Error -> _errorState.send(ChatUiState(error = UiText.DynamicString(result.message!!)))
                     is Resource.Success -> result.data?.let { chatRoom ->
                         chatRoomId = chatRoom.roomId
                         chatRoom.result.collect { chatList ->

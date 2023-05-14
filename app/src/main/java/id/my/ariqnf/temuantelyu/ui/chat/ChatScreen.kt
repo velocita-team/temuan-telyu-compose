@@ -26,7 +26,6 @@ import id.my.ariqnf.temuantelyu.LocalSnackbarHostState
 import id.my.ariqnf.temuantelyu.ui.theme.TemuanTelyuTheme
 import id.my.ariqnf.temuantelyu.ui.widgets.BasicTopBar
 import id.my.ariqnf.temuantelyu.ui.widgets.ReplyField
-import id.my.ariqnf.temuantelyu.util.UiText
 
 @Composable
 fun ChatScreenContainer(
@@ -34,8 +33,8 @@ fun ChatScreenContainer(
     viewModel: ChatViewModel = hiltViewModel()
 ) {
     val state = viewModel.chatUiState.collectAsState()
-    val errorState = viewModel.errorState.collectAsState(initial =  UiText.DynamicString(""))
-    val errorMsg = errorState.value.asString()
+    val errorState = viewModel.errorState.collectAsState(initial = ChatUiState())
+    val errorMsg = errorState.value.error?.asString() ?: ""
     val snackbarHostState = LocalSnackbarHostState.current
 
     LaunchedEffect(key1 = errorState.value) {

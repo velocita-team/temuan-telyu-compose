@@ -131,9 +131,6 @@ class ChatRepositoryImpl @Inject constructor(private val firestore: FirebaseFire
                     list
                 }
 
-            result.collect {
-                Log.d(LOG_TAG, it.toString())
-            }
             Resource.Success(result)
         } catch (e: FirebaseFirestoreException) {
             Log.e(LOG_TAG, "Fail to get chats", e)

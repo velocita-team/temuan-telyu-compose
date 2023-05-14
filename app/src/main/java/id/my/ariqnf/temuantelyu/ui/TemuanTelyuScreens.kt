@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import id.my.ariqnf.temuantelyu.ui.auth.LoginScreen
 import id.my.ariqnf.temuantelyu.ui.auth.RegisterScreen
 import id.my.ariqnf.temuantelyu.ui.chat.ChatScreenContainer
+import id.my.ariqnf.temuantelyu.ui.chat.ContactScreenContainer
 import id.my.ariqnf.temuantelyu.ui.home.HomeScreen
 import id.my.ariqnf.temuantelyu.ui.post.CreatePostScreen
 import id.my.ariqnf.temuantelyu.ui.post.MyPostScreen
@@ -72,6 +73,9 @@ fun TemuanTelyuScreens(navController: NavHostController = rememberNavController(
             listOf(navArgument("otherUserId") { type = NavType.StringType })
         ) {
             ChatScreenContainer(navController = navController)
+        }
+        composable(Screen.Contact.route) {
+            ContactScreenContainer(navController = navController)
         }
     }
 }
