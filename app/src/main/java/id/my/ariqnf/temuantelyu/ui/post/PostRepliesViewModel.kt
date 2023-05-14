@@ -37,10 +37,15 @@ class PostRepliesViewModel @Inject constructor(
     val errorState = _errorState.receiveAsFlow()
     var userReply by mutableStateOf("")
         private set
+    var seeOwnPost by mutableStateOf(false)
+        private set
 
     init {
         loadData()
+        checkUserSeeOwnPost()
     }
+
+    fun getpostOwnerId() = userId
 
     fun setReply(value: String) {
         userReply = value
@@ -87,5 +92,15 @@ class PostRepliesViewModel @Inject constructor(
         } else {
             _errorState.send(UiText.StringResource(R.string.reply_invalid))
         }
+    }
+
+    private fun checkUserSeeOwnPost() = viewModelScope.launch {
+        if (currentUser!!.isAnonymous) {
+            _errorState.send(UiText.StringResource(R.string.limited_access))
+            seeOwnPost = true
+            return@launch
+        }
+
+        seeOwnPost = currentUser.uid == userId
     }
 }

@@ -27,8 +27,8 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = Color.White,
     tertiary = Green600,
     onTertiary = Color.White,
-    background = Color.White,
-    surface = Gray50,
+    background = Gray50,
+    surface = WhiteSmoke,
     onSurface = Color.Black,
     surfaceVariant = Color.Black.copy(0.12f)
 )

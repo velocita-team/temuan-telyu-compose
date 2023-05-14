@@ -23,6 +23,7 @@ import id.my.ariqnf.temuantelyu.R
 import id.my.ariqnf.temuantelyu.ui.widgets.BasicTopBar
 import id.my.ariqnf.temuantelyu.ui.widgets.PostCard
 import id.my.ariqnf.temuantelyu.ui.widgets.ReplyField
+import id.my.ariqnf.temuantelyu.util.Screen
 import id.my.ariqnf.temuantelyu.util.UiText
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,11 +64,13 @@ fun PostRepliesScreen(
                     post = postState.post,
                     cardShape = RoundedCornerShape(0.dp)
                 ) {
-                    IconButton(onClick = { TODO("Onclick DM") }) {
-                        Icon(
-                            painter = painterResource(R.drawable.mail),
-                            contentDescription = stringResource(R.string.direct_message)
-                        )
+                    if (!viewModel.seeOwnPost) {
+                        IconButton(onClick = { navController.navigate(Screen.Chat.route + "/${viewModel.getpostOwnerId()}") }) {
+                            Icon(
+                                painter = painterResource(R.drawable.mail),
+                                contentDescription = stringResource(R.string.direct_message)
+                            )
+                        }
                     }
                 }
             }

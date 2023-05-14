@@ -8,12 +8,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import id.my.ariqnf.temuantelyu.domain.AuthRepository
+import id.my.ariqnf.temuantelyu.domain.ChatRepository
 import id.my.ariqnf.temuantelyu.domain.HomeRepository
 import id.my.ariqnf.temuantelyu.domain.PostRepliesRepository
 import id.my.ariqnf.temuantelyu.domain.PostRepository
 import id.my.ariqnf.temuantelyu.domain.ProfileRepository
 import id.my.ariqnf.temuantelyu.domain.SearchRepository
 import id.my.ariqnf.temuantelyu.domain.impl.AuthRepositoryImpl
+import id.my.ariqnf.temuantelyu.domain.impl.ChatRepositoryImpl
 import id.my.ariqnf.temuantelyu.domain.impl.HomeRepositoryImpl
 import id.my.ariqnf.temuantelyu.domain.impl.PostRepliesRepositoryImpl
 import id.my.ariqnf.temuantelyu.domain.impl.PostRepositoryImpl
@@ -71,4 +73,9 @@ object AppModule {
     @Singleton
     fun providesSearchRepository(firestore: FirebaseFirestore): SearchRepository =
         SearchRepositoryImpl(firestore)
+
+    @Provides
+    @Singleton
+    fun providesChatRepository(firestore: FirebaseFirestore): ChatRepository =
+        ChatRepositoryImpl(firestore)
 }

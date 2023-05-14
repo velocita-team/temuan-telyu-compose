@@ -22,4 +22,5 @@ sealed class Screen(
     object MyPost : Screen("my-post")
     object Login : Screen("login")
     object Register : Screen("register")
+    object Chat : Screen("chat", "/{otherUserId}")
 }

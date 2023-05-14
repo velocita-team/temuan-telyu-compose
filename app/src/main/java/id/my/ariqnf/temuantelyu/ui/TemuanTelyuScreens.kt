@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import id.my.ariqnf.temuantelyu.ui.auth.LoginScreen
 import id.my.ariqnf.temuantelyu.ui.auth.RegisterScreen
+import id.my.ariqnf.temuantelyu.ui.chat.ChatScreenContainer
 import id.my.ariqnf.temuantelyu.ui.home.HomeScreen
 import id.my.ariqnf.temuantelyu.ui.post.CreatePostScreen
 import id.my.ariqnf.temuantelyu.ui.post.MyPostScreen
@@ -65,6 +66,12 @@ fun TemuanTelyuScreens(navController: NavHostController = rememberNavController(
                     popUpTo(navController.graph.id) { inclusive = true }
                 }
             })
+        }
+        composable(
+            Screen.Chat.route + Screen.Chat.params,
+            listOf(navArgument("otherUserId") { type = NavType.StringType })
+        ) {
+            ChatScreenContainer(navController = navController)
         }
     }
 }
