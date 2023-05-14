@@ -11,9 +11,11 @@ import id.my.ariqnf.temuantelyu.domain.AuthRepository
 import id.my.ariqnf.temuantelyu.domain.ProfileRepository
 import id.my.ariqnf.temuantelyu.util.Resource
 import id.my.ariqnf.temuantelyu.util.UiText
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
@@ -59,8 +61,9 @@ class ProfileViewModel @Inject constructor(
 
     fun logOut() {
         auth.signOut()
-        viewModelScope.launch {
+        runBlocking {
             authRepository.createAnonymous()
+            delay(1500)
         }
     }
 }
