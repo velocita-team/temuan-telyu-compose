@@ -45,7 +45,14 @@ class ChatViewModel @Inject constructor(
         currentUser?.uid?.let { userId ->
             repository.getChats(userId, otherUserId).let { result ->
                 when (result) {
-                    is Resource.Error -> _errorState.send(ChatUiState(error = UiText.DynamicString(result.message!!)))
+                    is Resource.Error -> _errorState.send(
+                        ChatUiState(
+                            error = UiText.DynamicString(
+                                result.message!!
+                            )
+                        )
+                    )
+
                     is Resource.Success -> result.data?.let { chatRoom ->
                         chatRoomId = chatRoom.roomId
                         chatRoom.result.collect { chatList ->
@@ -63,14 +70,16 @@ class ChatViewModel @Inject constructor(
         }
     }
 
-    fun sendChat() = viewModelScope.launch {
-        repository.sendReply(
-            chatRoomId,
-            Chat(
-                sender = _chatUiState.value.currentUserId,
-                message = replyValue
+    fun sendChat() {
+        viewModelScope.launch {
+            repository.sendReply(
+                chatRoomId,
+                Chat(
+                    sender = _chatUiState.value.currentUserId,
+                    message = replyValue
+                )
             )
-        )
+        }
         replyValue = ""
     }
 
