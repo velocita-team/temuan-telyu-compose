@@ -120,12 +120,21 @@ fun CreatePostScreen(
                     modifier = Modifier.padding(bottom = 20.dp)
                 )
                 PostForm(
+                    value = uiState.value.location,
+                    onValueChange = { viewModel.setLocation(it) },
+                    labelRes = R.string.location,
+                    formHint = titleErr.ifBlank { stringResource(R.string.location_hint) },
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
+                    singleLine = true,
+                    modifier = Modifier.padding(bottom = 20.dp)
+                )
+                PostForm(
                     value = uiState.value.description,
                     onValueChange = { viewModel.setDescription(it) },
                     labelRes = R.string.description,
                     formHint = descriptionErr.ifBlank { stringResource(R.string.description_hint) },
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-                    formHeight = 224.dp,
+                    formHeight = 208.dp,
                     modifier = Modifier.padding(bottom = 20.dp)
                 )
                 PostForm(

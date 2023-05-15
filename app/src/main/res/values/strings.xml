@@ -6,6 +6,7 @@
     <string name="password">Password</string>
     <string name="repeat_password">Repeat Password</string>
     <string name="title">Title</string>
+    <string name="location">Location</string>
     <string name="description">Description</string>
     <string name="tags">Tags</string>
     <!--  Text field hint  -->
@@ -15,6 +16,7 @@
     <string name="repeat_password_hint">Re-enter password.</string>
     <string name="leave_comment">Leave a comment.</string>
     <string name="title_hint">Enter post title.</string>
+    <string name="location_hint">Enter location of the incident</string>
     <string name="description_hint">Enter a description.</string>
     <string name="tags_hint">Enter tags separated by \",\".</string>
     <!--  Input error message  -->
@@ -23,6 +25,7 @@
     <string name="password_match_invalid">Password do not match.</string>
     <string name="full_name_invalid">Please enter a valid name with alphabet characters only and maximum 70 characters.</string>
     <string name="title_invalid">Please insert title with maximum 255 characters.</string>
+    <string name="location_invalid">Please insert location with maximum 255 characters.</string>
     <string name="description_invalid">Please insert description with maximum 1000 characters.</string>
     <string name="tags_invalid">Please insert at least one tag</string>
     <string name="reply_invalid">Please enter reply with maximum 500 characters.</string>

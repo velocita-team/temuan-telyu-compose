@@ -9,6 +9,7 @@ interface PostRepository {
     suspend fun uploadPost(
         userId: String,
         title: String,
+        location: String,
         description: String,
         cate: String,
         tags: List<String>,

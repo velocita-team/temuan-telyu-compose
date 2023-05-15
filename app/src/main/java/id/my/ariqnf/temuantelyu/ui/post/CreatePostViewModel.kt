@@ -43,13 +43,21 @@ class CreatePostViewModel @Inject constructor(private val repository: PostReposi
                 repository.uploadPost(
                     userId = it,
                     title = _uiState.value.title,
+                    location = _uiState.value.location,
                     description = _uiState.value.description,
                     cate = _uiState.value.cate,
                     tags = splitTags(),
                     imageUri = _uiState.value.imageUri,
                 ).let { result ->
                     when (result) {
-                        is Resource.Error -> _uploadState.send(Resource.Error(data = UiText.StringResource(R.string.fail_upload), message = ""))
+                        is Resource.Error -> _uploadState.send(
+                            Resource.Error(
+                                data = UiText.StringResource(
+                                    R.string.fail_upload
+                                ), message = ""
+                            )
+                        )
+
                         is Resource.Success -> {
                             _uiState.update { CreatePostUiState() }
                             _uploadState.send(Resource.Success(UiText.StringResource(R.string.post_uploaded)))
@@ -66,6 +74,12 @@ class CreatePostViewModel @Inject constructor(private val repository: PostReposi
         var result = false
         if (_uiState.value.title.isBlank() || _uiState.value.title.length >= 255) {
             error = error.copy(title = UiText.StringResource(R.string.title_invalid))
+            result = true
+            _errorState.send(error)
+        }
+
+        if (_uiState.value.location.isBlank() || _uiState.value.location.length >= 255) {
+            error = error.copy(location = UiText.StringResource(R.string.location_invalid))
             result = true
             _errorState.send(error)
         }
@@ -98,6 +112,12 @@ class CreatePostViewModel @Inject constructor(private val repository: PostReposi
     fun setTitle(value: String) {
         _uiState.update {
             it.copy(title = value)
+        }
+    }
+
+    fun setLocation(value: String) {
+        _uiState.update {
+            it.copy(location = value)
         }
     }
 

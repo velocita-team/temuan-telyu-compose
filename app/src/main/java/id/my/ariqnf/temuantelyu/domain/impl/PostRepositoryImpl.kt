@@ -28,6 +28,7 @@ class PostRepositoryImpl @Inject constructor(
     override suspend fun uploadPost(
         userId: String,
         title: String,
+        location: String,
         description: String,
         cate: String,
         tags: List<String>,
@@ -40,6 +41,7 @@ class PostRepositoryImpl @Inject constructor(
                 .child("$userId-${System.currentTimeMillis()}")
             var newPost = Post(
                 title = title,
+                location = location,
                 content = description,
                 sender = userId,
                 date = Timestamp.now(),

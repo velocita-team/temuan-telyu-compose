@@ -14,16 +14,21 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -40,7 +45,11 @@ fun PostCard(
     post: Post,
     modifier: Modifier = Modifier,
     cardShape: Shape = CardDefaults.shape,
-    actionButton: @Composable (RowScope.() -> Unit)? = null
+    titleMaxLines: Int = Int.MAX_VALUE,
+    titleOverflow: TextOverflow = TextOverflow.Clip,
+    contentMaxLines: Int = Int.MAX_VALUE,
+    contentOverflow: TextOverflow = TextOverflow.Clip,
+    actionButton: @Composable (RowScope.() -> Unit)? = null,
 ) {
     val cateColor = if (post.cate == "lost") Red600 else Green600
     val formattedDate = post.date?.relativeTime() ?: ""
@@ -61,11 +70,23 @@ fun PostCard(
                     .padding(16.dp)
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(text = "${post.title}", style = MaterialTheme.typography.titleLarge)
+                    Text(
+                        text = "${post.title}",
+                        style = MaterialTheme.typography.titleLarge,
+                        maxLines = titleMaxLines,
+                        overflow = titleOverflow
+                    )
                     Text(
                         text = "${post.sender} | $formattedDate",
                         style = MaterialTheme.typography.bodyMedium
                     )
+                    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Icon(imageVector = Icons.Default.LocationOn, contentDescription = null, modifier = Modifier.size(16.dp))
+                        Text(
+                            text = "${post.location}",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                 }
                 Box(
                     modifier = Modifier
@@ -93,6 +114,8 @@ fun PostCard(
             }
             Text(
                 text = "${post.content}",
+                maxLines = contentMaxLines,
+                overflow = contentOverflow,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -100,7 +123,11 @@ fun PostCard(
             )
             if (actionButton != null) {
                 Spacer(modifier = Modifier.height(20.dp))
-                Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End, content = actionButton)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End,
+                    content = actionButton
+                )
             }
         }
     }
@@ -114,6 +141,7 @@ fun PostCardPreview() {
             post = Post(
                 title = "Dompet ilang",
                 sender = "Thomas",
+                location = "Tel-u",
                 date = Timestamp.now(),
                 content = "Dompet saya hilang kemarin",
                 cate = "lost",

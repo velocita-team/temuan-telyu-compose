@@ -6,6 +6,7 @@
     <string name="password">Kata sandi</string>
     <string name="repeat_password">Ulang kata sandi</string>
     <string name="title">Judul</string>
+    <string name="location">Lokasi</string>
     <string name="description">Deskripsi</string>
     <string name="tags">Penanda</string>
     <!--  Text field hint  -->
@@ -15,6 +16,7 @@
     <string name="repeat_password_hint">Masukkan kembali kata sandi.</string>
     <string name="leave_comment">Berikan komentar.</string>
     <string name="title_hint">Masukkan judul.</string>
+    <string name="location_hint">Masukkan lokasi kejadian</string>
     <string name="description_hint">Masukkan deskripsi barang.</string>
     <string name="tags_hint">Masukkan penandan yang dipisah dengan \",\".</string>
     <!--  Input error message  -->
@@ -23,6 +25,7 @@
     <string name="password_match_invalid">Kata sandi tidak sama.</string>
     <string name="full_name_invalid">Tolong masukkan nama yang valid dengan karakter alfabet saja dan maksimum 70 karakter.</string>
     <string name="title_invalid">Tolong masukkan judul dengan maksimal 255 karakter.</string>
+    <string name="location_invalid">Tolong masukkan lokasi dengan maksimal 255 karakter.</string>
     <string name="description_invalid">Tolong masukkan deskripsi dengan maksimal 1000 karakter.</string>
     <string name="tags_invalid">Tolong masukkan setidaknya satu penanda</string>
     <string name="reply_invalid">Tolong masukkan balasan dengan maksimal 500 karakter.</string>

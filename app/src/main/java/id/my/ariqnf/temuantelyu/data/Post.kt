@@ -9,6 +9,7 @@ data class Post(
     val sender: String? = "",
     val date: Timestamp? = null,
     val content: String? = "",
+    val location: String? = "",
     val cate: String? = "",
     val tags: List<String>? = emptyList(),
     val imageUrl: String? = "",
