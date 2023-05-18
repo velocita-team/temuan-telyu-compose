@@ -34,6 +34,10 @@ fun ContactScreenContainer(
         if (errorMsg.isNotBlank())
             snackbarHostState.showSnackbar(errorMsg)
     }
+    
+    LaunchedEffect(Unit) {
+        viewModel.loadData()
+    }
 
     ContactScreen(
         contacts = state.value.data,

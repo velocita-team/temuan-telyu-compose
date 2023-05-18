@@ -24,11 +24,7 @@ class ContactViewModel @Inject constructor(private val repository: ChatRepositor
     val contactUiState = _contactUiState.asStateFlow()
     val errorState = _errorState.receiveAsFlow()
 
-    init {
-        loadData()
-    }
-
-    private fun loadData() = viewModelScope.launch {
+    fun loadData() = viewModelScope.launch {
         currentUser?.uid?.let { userId ->
             repository.getMyChats(userId).let { result ->
                 when (result) {
