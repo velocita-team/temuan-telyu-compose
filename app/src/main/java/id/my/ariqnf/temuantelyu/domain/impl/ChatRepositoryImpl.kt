@@ -61,7 +61,7 @@ class ChatRepositoryImpl @Inject constructor(private val firestore: FirebaseFire
 
             val result =
                 firestore.collection(CHAT_ROOM_COLL).document(docRefId).collection(CHAT_COLL)
-                    .orderBy(TIMESTAMP_FIELD)
+                    .orderBy(TIMESTAMP_FIELD, Query.Direction.ASCENDING)
                     .snapshots()
                     .map {
                         it.toObjects(Chat::class.java)
