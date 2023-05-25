@@ -145,8 +145,8 @@ fun HomeScreen(
 
 @Preview
 @Composable
-fun HomeScreenPreview() {
-    TemuanTelyuTheme() {
+private fun HomeScreenPreview() {
+    TemuanTelyuTheme {
         HomeScreen(navController = rememberNavController())
     }
 }

@@ -46,7 +46,6 @@
     <string name="messages">Pesan</string>
     <!--  Content description  -->
     <string name="search">Cari</string>
-    <string name="cancel_search">Batalkan pencarian</string>
     <string name="create_post">Buat unggahan baru</string>
     <string name="clear_text">Hapus teks</string>
     <string name="comment">Komentar</string>
@@ -58,7 +57,6 @@
     <!--  Others  -->
     <string name="ask_confirmation">Apa kamu yakin?</string>
     <string name="delete_info">Unggahan akan dihapus dan tidak bisa dikembalikan lagi.</string>
-    <string name="uploading">Mengunggah…</string>
     <string name="have_logout">Anda berhasil keluar.</string>
     <string name="post_uploaded">Unggahan berhasil diunggah.</string>
     <string name="fail_upload">Gagal mengunggah konten.</string>

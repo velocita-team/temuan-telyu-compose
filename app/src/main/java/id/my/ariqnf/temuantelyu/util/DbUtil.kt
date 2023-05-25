@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package id.my.ariqnf.temuantelyu.util
 
 

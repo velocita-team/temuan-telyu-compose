@@ -46,7 +46,6 @@
     <string name="messages">Messages</string>
     <!--  Content description  -->
     <string name="search">Search</string>
-    <string name="cancel_search">Cancel search</string>
     <string name="create_post">Create new post</string>
     <string name="clear_text">Clear text</string>
     <string name="comment">Comment</string>
@@ -56,12 +55,9 @@
     <string name="go_back">Go back to previous screen</string>
     <string name="discard_post">Discard post</string>
     <!--  Others  -->
-    <string name="telyutizen" translatable="false">Telyutizen</string>
     <string name="ask_confirmation">Are you sure?</string>
     <string name="delete_info">Post will be deleted and can\'t be restored again.</string>
-    <string name="empty" translatable="false" />
     <string name="greeting" translatable="false">Hi, %1$s</string>
-    <string name="uploading">Uploading…</string>
     <string name="have_logout">You have successfully logged out.</string>
     <string name="post_uploaded">Post uploaded successfully.</string>
     <string name="fail_upload">Failed to upload content.</string>

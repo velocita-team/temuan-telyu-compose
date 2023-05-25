@@ -70,6 +70,7 @@ fun CreatePostScreen(
     }
 
     val titleErr = errorState.value.title.asString()
+    val locationErr = errorState.value.location.asString()
     val descriptionErr = errorState.value.description.asString()
     val tagsErr = errorState.value.tags.asString()
     val isFound = uiState.value.cate == "found"
@@ -123,7 +124,7 @@ fun CreatePostScreen(
                     value = uiState.value.location,
                     onValueChange = { viewModel.setLocation(it) },
                     labelRes = R.string.location,
-                    formHint = titleErr.ifBlank { stringResource(R.string.location_hint) },
+                    formHint = locationErr.ifBlank { stringResource(R.string.location_hint) },
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                     singleLine = true,
                     modifier = Modifier.padding(bottom = 20.dp)
