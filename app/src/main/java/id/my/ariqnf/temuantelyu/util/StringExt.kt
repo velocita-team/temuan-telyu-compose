@@ -1,6 +1,7 @@
 package id.my.ariqnf.temuantelyu.util
 
 import android.util.Patterns
+import androidx.core.util.PatternsCompat
 import java.util.regex.Pattern
 
 private const val MIN_PASS_LENGTH = 6
@@ -10,7 +11,7 @@ private const val MAX_PASS_LENGTH = 70
 private const val FULL_NAME_PATTERN = "^[\\p{L} ]{2,}$"
 
 fun String.isValidEmail(): Boolean {
-    return this.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+    return this.isNotBlank() && PatternsCompat.EMAIL_ADDRESS.matcher(this).matches()
 }
 
 fun String.isValidPassword(): Boolean {
