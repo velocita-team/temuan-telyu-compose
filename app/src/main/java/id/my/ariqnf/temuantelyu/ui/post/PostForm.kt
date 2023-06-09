@@ -33,6 +33,7 @@ fun PostForm(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     value: String = "",
+    isError: Boolean = false,
     onValueChange: (String) -> Unit = {}
 ) {
     Column(modifier = modifier) {
@@ -41,6 +42,7 @@ fun PostForm(
                 Text(text = stringResource(labelRes))
             },
             value = value,
+            isError = isError,
             onValueChange = onValueChange,
             modifier = Modifier
                 .fillMaxWidth()

@@ -116,6 +116,7 @@ fun CreatePostScreen(
                     onValueChange = { viewModel.setTitle(it) },
                     labelRes = R.string.title,
                     formHint = titleErr.ifBlank { stringResource(R.string.title_hint) },
+                    isError = titleErr.isNotBlank(),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                     singleLine = true,
                     modifier = Modifier.padding(bottom = 20.dp)
@@ -125,6 +126,7 @@ fun CreatePostScreen(
                     onValueChange = { viewModel.setLocation(it) },
                     labelRes = R.string.location,
                     formHint = locationErr.ifBlank { stringResource(R.string.location_hint) },
+                    isError = locationErr.isNotBlank(),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                     singleLine = true,
                     modifier = Modifier.padding(bottom = 20.dp)
@@ -134,6 +136,7 @@ fun CreatePostScreen(
                     onValueChange = { viewModel.setDescription(it) },
                     labelRes = R.string.description,
                     formHint = descriptionErr.ifBlank { stringResource(R.string.description_hint) },
+                    isError = descriptionErr.isNotBlank(),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
                     formHeight = 208.dp,
                     modifier = Modifier.padding(bottom = 20.dp)
@@ -143,6 +146,7 @@ fun CreatePostScreen(
                     onValueChange = { viewModel.setTags(it) },
                     labelRes = R.string.tags,
                     formHint = tagsErr.ifBlank { stringResource(R.string.tags_hint) },
+                    isError = tagsErr.isNotBlank(),
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(
                         onDone = { focusManager.clearFocus() }
